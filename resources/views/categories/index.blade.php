@@ -1,4 +1,4 @@
-@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+@extends('layouts.app')
 
 @section('content')
 <!DOCTYPE html>
@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <p>{{Auth::user()->name}}</p>
         <h1>Blog Name</h1>
         <p class='create'><a href='/posts/create'>create</a></p>
         <div class='posts'>
@@ -19,6 +18,7 @@
                     <a href='/posts/{{$post->id}}'><h2 class='title'>{{ $post->title }}</h2></a>
                     <a href="">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
+                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                 </div>
             @endforeach
         </div>
